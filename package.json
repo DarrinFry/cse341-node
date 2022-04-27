@@ -1,5 +1,5 @@
 {
-  "name": "cse341-node",
+  "name": "lesson-2",
   "version": "1.0.0",
   "description": "code for cse341 course",
   "main": "index.js",
@@ -18,9 +18,17 @@
   },
   "homepage": "https://github.com/DarrinFry/cse341-node#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mongodb": "^4.5.0",
+    "mongosh": "^0.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "keywords": [
+    "team",
+    "node",
+    "rest",
+    "aghhhhhhh"
+  ]
 }

@@ -1,0 +1,30 @@
+{
+    "contact0": {
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "favoriteColor": "",
+        "birthday": ""
+    },
+    "contact1": {
+        "firstName": "Darrin",
+        "lastName": "Fry",
+        "email": "darrinfry@byui.edu",
+        "favoriteColor": "Blue",
+        "birthday": "06/21/1985"
+    },
+    "contact2": {
+        "firstName": "Ken",
+        "lastName": "Adams",
+        "email": "KenAdams@FakeEmail.com",
+        "favoriteColor": "Green",
+        "birthday": "01/01/1980"
+    },
+    "contact3": {
+        "firstName": "Regina",
+        "lastName": "Phalange",
+        "email": "realnameisphoebebuffay@FakeEmail.com",
+        "favoriteColor": "Rainbow",
+        "birthday": "02/29/1978"
+    }
+}
