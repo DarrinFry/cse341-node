@@ -8,3 +8,13 @@ GET http://localhost:8080/contacts/6268b3327cbe1abba92df8a7
 ###
 GET http://localhost:8080/contacts/6268b3327cbe1abba92df8a8
 ###
+//HEROKU
+###
+GET https://d-fry-cse341-api.herokuapp.com/contacts/
+###
+GET https://d-fry-cse341-api.herokuapp.com/contacts/6268b3327cbe1abba92df8a6
+###
+GET https://d-fry-cse341-api.herokuapp.com/contacts/6268b3327cbe1abba92df8a7
+###
+GET https://d-fry-cse341-api.herokuapp.com/contacts/6268b3327cbe1abba92df8a8
+###
