@@ -4,6 +4,6 @@ const routes = require('express').Router();
 //     res.send('Someone I know A.K.A. Darrin Fry (That was an attempt at some dad humor.)')
 // });
 
-routes.use('/contacts', require('./contacts'))
+routes.use('/', require('./contacts'))
 
 module.exports = routes;
