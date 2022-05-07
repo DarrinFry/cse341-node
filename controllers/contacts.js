@@ -42,6 +42,7 @@ const postNewContact = async (req, res) => {
   }
 };
 
+
 //logic of the update was mirrored from the getSingle(since all we want is to find someone based on their ID).
 const putUpdateContact = async (req, res) => {
 const userId = new ObjectId(req.params.id);
