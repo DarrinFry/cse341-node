@@ -59,3 +59,43 @@ GET https://d-fry-cse341-api.herokuapp.com/contacts/6268b3327cbe1abba92df8a7
 ###
 GET https://d-fry-cse341-api.herokuapp.com/contacts/6268b3327cbe1abba92df8a8
 ###
+### 
+POST https://d-fry-cse341-api.herokuapp.com/contacts HTTP/1.1 
+content-type: application/json
+
+{
+"firstName":"Ashley", "lastName":"Weaver", "email":"aWeaver@test.com", "favoriteColor":"Brown", "birthday":"06/19/2000"
+}
+###
+POST https://d-fry-cse341-api.herokuapp.com/contacts/ HTTP/1.1 
+content-type: application/json
+
+    {
+    "firstName":"Joey",
+    "lastName":"Tribbiani",
+    "email":"JoeyDoesntShareFood@FakeEmail.com",
+    "favoriteColor":"Pizza",
+    "birthday":"02/29/1977"
+    }      
+###
+PUT https://d-fry-cse341-api.herokuapp.com/contacts/6268b3327cbe1abba92df8a8/ HTTP/1.1 
+content-type: application/json
+
+    # {
+    # "firstName": "Regina",
+    # "lastName": "Phalange",
+    # "email": "realnameisphoebebuffay@FakeEmail.com",
+    # "favoriteColor": "Rainbow",
+    # "birthday": "02/29/1978"
+    # }
+    {
+    "firstName": "Regina A.K.A Phoebe",
+    "lastName": "Phalange A.K.A. Buffay",
+    "email": "realnameisphoebebuffay@FakeEmail.com",
+    "favoriteColor": "Rainbow",
+    "birthday": "02/29/1978"
+    }
+###
+DELETE https://d-fry-cse341-api.herokuapp.com/contacts/627702c1a14273059483382d/ HTTP/1.1 
+content-type: application/json
+###
