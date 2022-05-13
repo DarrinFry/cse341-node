@@ -9,7 +9,7 @@ require("dotenv").config();
 // app.listen(port, () => {
 //     console.log(`Running on port ${port}`)
 // })
-const swaggerAutogen = require('swagger-autogen')();
+const swaggerAutogen = require('swagger-autogen');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
 const express = require('express');
