@@ -9,6 +9,9 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 const getAll = async (req, res, next) => {
+  /*
+    #swagger.description =  Get all contacts in the database
+  */
   try {
     const result = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).find();
     result.toArray().then((lists) => {
@@ -23,6 +26,9 @@ const getAll = async (req, res, next) => {
 };
 
 const getSingle = async (req, res, next) => {
+    /*
+    #swagger.description =  Get a single contact based on the ID
+    */
   try {
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).find({ _id: userId });
@@ -37,6 +43,9 @@ const getSingle = async (req, res, next) => {
 };
 
 const postNewContact = async (req, res) => {
+  /*
+    #swagger.description =  Create a new contact
+  */
   try {  
     const newContact = {
     firstName: req.body.firstName,
@@ -62,6 +71,9 @@ const postNewContact = async (req, res) => {
 
 //logic of the update was mirrored from the getSingle(since all we want is to find someone based on their ID).
 const putUpdateContact = async (req, res) => {
+  /*
+    #swagger.description =  Update a contact
+  */
   try {
     const userId = new ObjectId(req.params.id);
 const updatedContact = {
@@ -73,12 +85,7 @@ const updatedContact = {
 };
 
 const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).replaceOne({ _id: userId }, updatedContact);
-  //error response was inserted from the instructors code.
-  // try {
 
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -94,6 +101,9 @@ const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(
 
 //logic and const used from single and update 
 const deleteContact = async (req, res) => {
+  /*
+    #swagger.description =  Delete a contact
+  */
   try {
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).deleteOne({_id: userId});
