@@ -24,8 +24,8 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.MONGO_DB_URI;
 MongoClient.connect(uri, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("test");
-    dbo.collection("user").find().toArray(function(err, result) {
+    var dbo = db.db(process.env.PARENT_FOLDER);
+    dbo.collection(process.env.CHILD_FOLDER).find().toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
         db.close()

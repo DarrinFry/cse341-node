@@ -52,7 +52,10 @@ const postNewContact = async (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    birthday: req.body.birthday,
+    favoriteSport: req.body.favoriteSport,
+    favoriteFood: req.body.favoriteFood,
+    favoriteQuote: req.body.favoriteQuote
   };
   const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).insertOne(newContact);
   //error response was inserted from the instructors code.
@@ -81,7 +84,10 @@ const updatedContact = {
   lastName: req.body.lastName,
   email: req.body.email,
   favoriteColor: req.body.favoriteColor,
-  birthday: req.body.birthday
+  birthday: req.body.birthday,
+  favoriteSport: req.body.favoriteSport,
+  favoriteFood: req.body.favoriteFood,
+  favoriteQuote: req.body.favoriteQuote
 };
 
 const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).replaceOne({ _id: userId }, updatedContact);
