@@ -9,7 +9,17 @@ require("dotenv").config();
 // app.listen(port, () => {
 //     console.log(`Running on port ${port}`)
 // })
- 
+const swaggerAutogen = require('swagger-autogen')();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongodb = require('./db/connect');
+
+const port = process.env.PORT || 8080;
+const app = express();
+
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.MONGO_DB_URI;
 MongoClient.connect(uri, function(err, db) {
@@ -22,14 +32,10 @@ MongoClient.connect(uri, function(err, db) {
     });
 });
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongodb = require('./db/connect');
 
-const port = process.env.PORT || 8080;
-const app = express();
 
 app
+  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
   .use(bodyParser.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
