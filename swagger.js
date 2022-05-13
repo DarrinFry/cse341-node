@@ -7,8 +7,8 @@ const doc = {
     title: 'Darrin Fry Contacts Assignment API',
     description: 'Contacts API',
   },
-  host: 'localhost:8080',
-  schemes: ['http'],
+  host: 'd-fry-cse341-api.herokuapp.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger-output.json';
