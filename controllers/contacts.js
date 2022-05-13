@@ -74,11 +74,11 @@ const updatedContact = {
 
 const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).replaceOne({ _id: userId }, updatedContact);
   //error response was inserted from the instructors code.
-  try {
+  // try {
 
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
