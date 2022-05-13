@@ -9,24 +9,36 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 const getAll = async (req, res, next) => {
-  const result = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).find();
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists);
-  });
+  try {
+    const result = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).find();
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists);
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
 };
 
 const getSingle = async (req, res, next) => {
-  const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).find({ _id: userId });
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+  try {
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).find({ _id: userId });
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]);
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
 };
 
 const postNewContact = async (req, res) => {
-  const newContact = {
+  try {  
+    const newContact = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -40,12 +52,18 @@ const postNewContact = async (req, res) => {
   } else {
     res.status(500).json(response.error || 'An error has occured');
   }
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
 };
 
 
 //logic of the update was mirrored from the getSingle(since all we want is to find someone based on their ID).
 const putUpdateContact = async (req, res) => {
-const userId = new ObjectId(req.params.id);
+  try {
+    const userId = new ObjectId(req.params.id);
 const updatedContact = {
   firstName: req.body.firstName,
   lastName: req.body.lastName,
@@ -56,25 +74,40 @@ const updatedContact = {
 
 const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).replaceOne({ _id: userId }, updatedContact);
   //error response was inserted from the instructors code.
+  try {
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
     res.status(500).json(response.error || 'Some error occurred while updating the contact.');
   }
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
 };
 
 //logic and const used from single and update 
 const deleteContact = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).deleteOne({_id: userId});
-  
-  //error response was inserted from the instructors code.
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res.status(500).json(response.error || 'An error has occured');
+  try {
+    const userId = new ObjectId(req.params.id);
+    const response = await mongodb.getDb().db(process.env.PARENT_FOLDER).collection(process.env.CHILD_FOLDER).deleteOne({_id: userId});
+    
+    //error response was inserted from the instructors code.
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res.status(500).json(response.error || 'An error has occured');
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
+
 };
 
 
