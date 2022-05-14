@@ -12,6 +12,4 @@ routes.put('/:id', contactsController.putUpdateContact);
 
 routes.delete('/:id', contactsController.deleteContact);
 
-
-
 module.exports = routes;

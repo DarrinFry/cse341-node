@@ -1,4 +1,4 @@
-const dotenv = require("dotenv").config();
+const dotenv = require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
 
 let _db;
@@ -29,4 +29,3 @@ module.exports = {
   initDb,
   getDb,
 };
-

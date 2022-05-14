@@ -7,9 +7,7 @@
   },
   "host": "d-fry-cse341-api.herokuapp.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/api-docs": {
       "get": {
@@ -21,9 +19,7 @@
     "/contacts/": {
       "get": {
         "description": "Get all contacts in the database",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [],
         "responses": {
           "200": {
@@ -84,9 +80,7 @@
     "/contacts/{id}": {
       "get": {
         "description": "Get a single contact based on the ID",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
